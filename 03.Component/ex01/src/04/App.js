@@ -5,6 +5,7 @@ function App() {
     return (
         <div id={'App'}>
             <MyComponent
+                //어떤 값의 형태가 들어와야 될 지 명시한 곳 
                 props02={20}
                 props03={true} 
                 props04={{no:1, name:'둘리'}}
