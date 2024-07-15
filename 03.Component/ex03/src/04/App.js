@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import logo from './assets/images/react-logo.png';
 
 export default function App() {
-    // 외부 handler function으로 뺌 
+
+    const imgRef = useRef(null); 
 
     // key press(code) 관련 이벤트 
     const onKeyPressInput = (event) => {
@@ -32,7 +33,14 @@ export default function App() {
     }
 
     const onMouseMoveImg = (event) => {
-        console.log('mousemove', `x=${event.clientX}, y=${event.clientY}`);
+        const offsetTop = imgRef.current.offsetTop;
+        const offsetLeft = imgRef.current.offsetLeft;
+
+        // console.log(offsetTop);
+        // console.log(offsetLeft);
+
+        console.log('mousemove', `x=${event.clientX - offsetLeft}, y=${event.clientY - offsetTop}`);
+        //console.log('mousemove', `x=${event.clientX}, y=${event.clientY}`);
     }
 
     const onMouseOutImg = (event) => {
@@ -70,6 +78,7 @@ export default function App() {
                 <br/>
                 <br/>
             <img
+                ref={imgRef} //html img element ref, mount 끝난 후 Real DOM에 img ref에 값 셋팅 
                 style={ {
                     cursor: 'pointer',
                     width: 190,
