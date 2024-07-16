@@ -1,17 +1,17 @@
 import React from 'react';
 import TabItem from './TabItem';
+import {_Tabs} from './assets/scss/Tabs.scss';
 
-function Tabs({ tabs }) {
+function Tabs({tabs}) {
     return (
-        <ul>
-             {tabs.map(tab => (
-                    <TabItem 
-                        key={tab.no}
-                        name={tab.name}
-                        isActive={tab.active}
-                        contents={tab.contents}
-                    />
-                ))}
+        <ul className={_Tabs}>
+            {tabs.map(tab => (
+                <TabItem 
+                    key={tab.no} 
+                    name={tab.name} 
+                    isActive={tab.active} 
+                />
+            ))}
         </ul>
     );
 }
