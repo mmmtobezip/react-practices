@@ -37,11 +37,3 @@ console.log(order.products, updateOrderProducts3, order.products === updateOrder
 
 console.log("== Sol2 ========================================");
 order = JSON.parse(fs.readFileSync('./json/data.json', 'utf-8'));
-
-
-
-
-// data = [ {no:10, status: 'Done'}, {no:20, status:'Doing'}, {no:11, status:'Doing'}, no:10, status:'Todo'}]
-// cards = data.filter(e => e.status === 'Doing') 
-// -> 리턴해주는 배열이 doing인 애들만 나오게됨. 
-// console.log(cards);

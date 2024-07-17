@@ -9,6 +9,6 @@
 4. ex04  
 &ensp;- State  
 5. ex05  
-&ensp;- Component Lifecycle  
+&ensp;- Component Lifecycle(Class Component)  & useEffect(Function Component)
 6. ex06  
 &ensp;- Immutability(불변성) of Component's State

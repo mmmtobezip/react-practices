@@ -1,24 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Tabs from './Tabs';
 import TabView from './TabView';
 import {Tab_Box} from './assets/scss/TabBox.scss';
 import tabs from './assets/json/data';
 
 function TabBox() {
-    const[activeIndex, setActiveIndex] = React.useState(0); //몇번째 값이 들어오냐에 따라 해당 탭 색상 활성화
+    const[activeIndex, setActiveIndex] = useState(0); //몇번째 값이 들어오냐에 따라 해당 탭 색상 활성화
+    const selectTab = function(no) { //property 전달 
+        console.log(no);
 
+        // 방법 1. 
+        // const index = tabs.map(e => e.no).indexOf(no);
+        // setActiveIndex(index); 
+
+        // // 방법 2. 
+        // const index = tabs.findIndex(e => e.no === no);
+        // setActiveIndex(index);  
+
+        // 방법3. 
+        setActiveIndex(tabs.findIndex(e => e.no === no)); 
+
+    };
     return (
         <div className={Tab_Box}>
-            {/* 순수 상태(tabs가 가진)  */}
             <Tabs 
-                selectTab={(no) => {
-                    //property로 Tabs에게 함수를 내려주고, Tabs는 select tab function을 받음. 
-                    //no값이 들어오면 activeIndex를 바꿔준다. 
-                    //Tabs에서 selectTab을 TabBox에게 내려주고 Tab
-
-                    //TabItem에서 온클릭으로 selectTab을 Tabs에서 호출하면
-                    //Tabs에서 넘어오는 nor값으로 TabBox에서 activeIndex를 상태 변환 시킨다. 
-                }}
+                selectTab={selectTab} //방법 1, 2 
+                //selectTab={no => setActiveIndex(tabs.findIndex(e => e.no === no)  // 방법 3을 한줄로 줄인. 
                 tabs={tabs.map((e, i) => {
                 const {contents, ...rest} = e; //rest배열은 {"no": 1, "name": "메뉴1", "active": false}가 하나의 인덱스 값 
                 if(i === activeIndex) {
