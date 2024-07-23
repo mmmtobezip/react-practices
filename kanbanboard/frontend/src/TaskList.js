@@ -1,6 +1,6 @@
 import React from 'react';
 import Task from './Task';
-import {Task_List, Input_Add_Task} from './assets/TaskList.scss';
+import {Task_List, Input_Add_Task} from './assets/scss/TaskList.scss';
 
 function TaskList({tasks}) {
     return (
