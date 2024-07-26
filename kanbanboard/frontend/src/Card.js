@@ -75,16 +75,7 @@ function Card({no, title, description}) {
     const updateTask = async(task) => {
         try {
             console.log('updateTask' + task);
-            // const response = await fetch(`/api/tasks/${task.no}`, {
-            //     method: 'put',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify(task)
-            // });
-
-            const response = await fetch(`/api/tasks`, {
+            const response = await fetch(`/api/tasks/${task.no}`, {
                 method: 'put',
                 headers: {
                     'Accept': 'application/json',
@@ -92,6 +83,15 @@ function Card({no, title, description}) {
                 },
                 body: JSON.stringify(task)
             });
+
+            // const response = await fetch(`/api/tasks`, {
+            //     method: 'put',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(task)
+            // });
 
             if(!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
