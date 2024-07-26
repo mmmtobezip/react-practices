@@ -57,25 +57,25 @@ public class ApiController {
         		.body(JsonResult.success(vo));
     }
     
-//    @PutMapping("/tasks/{no}")
-//    public ResponseEntity<JsonResult> updateTask(@PathVariable("no") Long no, @RequestBody TaskVo vo) {
-//        log.info("Request task update by " + no);
-//        kanbanboardRepository.updateTask(no, vo.getDone());
-//        
-//        return ResponseEntity
-//        		.status(HttpStatus.OK)
-//        		.body(JsonResult.success(vo));
-//    }
-    
-    @PutMapping("/tasks")
-    public ResponseEntity<JsonResult> updateTask(@RequestBody TaskVo vo) {
-        //log.info("Request task update by " + no);
-        kanbanboardRepository.updateTask(vo.getNo(), vo.getDone());
+    @PutMapping("/tasks/{no}")
+    public ResponseEntity<JsonResult> updateTask(@PathVariable("no") Long no, @RequestBody TaskVo vo) {
+        log.info("Request task update by " + no);
+        kanbanboardRepository.updateTask(no, vo.getDone());
         
         return ResponseEntity
         		.status(HttpStatus.OK)
         		.body(JsonResult.success(vo));
     }
+    
+//    @PutMapping("/tasks")
+//    public ResponseEntity<JsonResult> updateTask(@RequestBody TaskVo vo) {
+//        //log.info("Request task update by " + no);
+//        kanbanboardRepository.updateTask(vo.getNo(), vo.getDone());
+//        
+//        return ResponseEntity
+//        		.status(HttpStatus.OK)
+//        		.body(JsonResult.success(vo));
+//    }
 
     @DeleteMapping("/tasks/{no}")
     public ResponseEntity<JsonResult> deleteTask(@PathVariable("no") Long no) {
