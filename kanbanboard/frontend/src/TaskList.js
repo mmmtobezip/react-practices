@@ -31,7 +31,7 @@ function TaskList({no, tasks, addTask, updateTask, deleteTask}) {
                 onKeyDown={(t) => {
                     if(t.key==="Enter") {
                         addTask({name:t.target.value, cardNo: no, done:'N'});
-                        inputRef.current.value = null; //초기화 ?
+                        inputRef.current.value = null; //초기화
                     }
                 }} 
             />
