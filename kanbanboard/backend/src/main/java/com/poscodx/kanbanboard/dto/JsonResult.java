@@ -2,8 +2,8 @@ package com.poscodx.kanbanboard.dto;
 
 public class JsonResult {
 	private String result;	//"success" or "fail"
-	private Object data;	// if success, set! 
-	private String message; // if fail, set!
+	private Object data;	// if success
+	private String message; // if fail
 	
 	private JsonResult(Object data) {
 		this.result = "success";
